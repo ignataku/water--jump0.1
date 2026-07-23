@@ -1,1 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+
+    <title>Water Jump</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!--
+        AQUÍ SE RENDERIZARÁ TODO EL MUNDO 3D
+    -->
+
+    <div id="game"></div>
+
+
+    <!-- INTERFAZ DEL JUEGO -->
+
+    <div id="interface">
+
+        <!-- INFORMACIÓN SUPERIOR -->
+
+        <div id="topBar">
+
+            <div>
+                WATER JUMP
+            </div>
+
+            <div>
+                ALTURA: 7,5 m
+            </div>
+
+            <div>
+                PUNTOS:
+                <span id="score">
+                    0
+                </span>
+            </div>
+
+        </div>
+
+
+        <!-- MENÚ PRINCIPAL -->
+
+        <div
+            id="mainMenu"
+            class="menu"
+        >
+
+            <h1>
+                WATER JUMP
+            </h1>
+
+            <p>
+                Simulador 3D de saltos al agua
+            </p>
+
+            <button id="freeMode">
+                MODO LIBRE
+            </button>
+
+            <button id="settings">
+                CONTROLES
+            </button>
+
+        </div>
+
+
+        <!-- MENÚ DE PREPARACIÓN -->
+
+        <div
+            id="preparationMenu"
+            class="menu hidden"
+        >
+
+            <h2>
+                PREPARA TU SALTO
+            </h2>
+
+            <p>
+                Elige tu posición inicial
+            </p>
+
+            <button id="frontStart">
+                DE FRENTE
+            </button>
+
+            <button id="backStart">
+                DE ESPALDAS
+            </button>
+
+            <br>
+
+            <button id="startJump">
+                COMENZAR SALTO
+            </button>
+
+            <br>
+
+            <button id="backToMenu">
+                VOLVER
+            </button>
+
+        </div>
+
+
+        <!-- MENÚ DE CONTROLES -->
+
+        <div
+            id="controlsMenu"
+            class="menu hidden"
+        >
+
+            <h2>
+                CONFIGURAR CONTROLES
+            </h2>
+
+            <p>
+                Pulsa una acción y después pulsa
+                la tecla que quieras utilizar.
+            </p>
+
+            <div id="keySettings"></div>
+
+            <button id="closeControls">
+                VOLVER
+            </button>
+
+        </div>
+
+
+        <!-- CONTROLES DURANTE EL SALTO -->
+
+        <div
+            id="jumpInterface"
+            class="hidden"
+        >
+
+            <div id="movementControls">
+
+                <button data-action="forward">
+                    ↑
+                </button>
+
+                <button data-action="backward">
+                    ↓
+                </button>
+
+                <button data-action="rollLeft">
+                    ←
+                </button>
+
+                <button data-action="rollRight">
+                    →
+                </button>
+
+                <button data-action="spinLeft">
+                    ↺
+                </button>
+
+                <button data-action="spinRight">
+                    ↻
+                </button>
+
+            </div>
+
+
+            <div id="poseControls">
+
+                <button data-action="straight">
+                    RECTO
+                </button>
+
+                <button data-action="bend">
+                    DOBLADO
+                </button>
+
+                <button data-action="tuck">
+                    BOLA
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- RESULTADO -->
+
+        <div
+            id="resultMenu"
+            class="menu hidden"
+        >
+
+            <h2>
+                SALTO TERMINADO
+            </h2>
+
+            <div id="finalScore">
+                0
+            </div>
+
+            <button id="replay">
+                REPETIR
+            </button>
+
+            <button id="slowReplay">
+                CÁMARA LENTA
+            </button>
+
+            <button id="newJump">
+                NUEVO SALTO
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- THREE.JS -->
+
+    <script type="importmap">
+
+    {
+        "imports": {
+
+            "three":
+            "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+
+        }
+
+    }
+
+    </script>
+
+
+    <!-- NUESTRO JUEGO -->
+
+    <script
+        type="module"
+        src="main.js"
+    ></script>
+
+</body>
+
+</html>
